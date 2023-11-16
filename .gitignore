@@ -31,3 +31,4 @@ obj/Release/net5.0-windows/AT2Recycle.AssemblyInfoInputs.cache
 obj/Release/net5.0-windows/AT2Recycle.assets.cache
 obj/Release/net5.0-windows/AT2Recycle.csproj.AssemblyReference.cache
 obj/Release/net5.0-windows/AT2Recycle.GeneratedMSBuildEditorConfig.editorconfig
+/.vs/AT2Recycle
