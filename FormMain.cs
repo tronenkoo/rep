@@ -397,8 +397,8 @@ namespace AT2Recycle
         /// <param name="e">The event arguments</param>
         private void buttonPrev_Click(object sender, EventArgs e)
         {
-            //if (CurrentRecordIndex <= 0)
-                //return;
+            if (CurrentRecordIndex <= 0)
+                return;
 
             CurrentRecordIndex --;
 
@@ -428,10 +428,28 @@ namespace AT2Recycle
             CurrentRecycler = recyclerManager.GetAll()[CurrentRecordIndex];
             SelectedRecycler = recyclerManager.GetAll()[CurrentRecordIndex];
 
-            //buttonLastRecord.Visible = CurrentRecordIndex != listBoxRecyclers.Items.Count - 1;
-            //buttonNext.Visible = CurrentRecordIndex != listBoxRecyclers.Items.Count - 1;
-            //buttonPrev.Visible = CurrentRecordIndex != 0;
-            //firstRecord_button.Visible = CurrentRecordIndex != 0;
+            var buttonAction = SettingsManager.Instance.ReadSetting();
+
+            switch (buttonAction)
+            {
+                case SettingsManager.SETTING_HIDE:
+
+                    buttonLastRecord.Visible = CurrentRecordIndex != listBoxRecyclers.Items.Count - 1;
+                    buttonNext.Visible = CurrentRecordIndex != listBoxRecyclers.Items.Count - 1;
+                    buttonPrev.Visible = CurrentRecordIndex != 0;
+                    firstRecord_button.Visible = CurrentRecordIndex != 0;
+
+                    break;
+
+                case SettingsManager.SETTING_DISABLE:
+
+                    buttonLastRecord.Enabled = CurrentRecordIndex != listBoxRecyclers.Items.Count - 1;
+                    buttonNext.Enabled = CurrentRecordIndex != listBoxRecyclers.Items.Count - 1;
+                    buttonPrev.Enabled = CurrentRecordIndex != 0;
+                    firstRecord_button.Enabled = CurrentRecordIndex != 0;
+
+                    break;
+            }
         }
 
         /// <summary>
@@ -479,6 +497,28 @@ namespace AT2Recycle
         private void enterBNtoFind_textBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            new FormSettings().ShowDialog();
+
+            ResetButtonState();
+
+            SetRecyclerByIndex();
+        }
+
+        private void ResetButtonState()
+        {
+            buttonLastRecord.Visible = true;
+            firstRecord_button.Visible = true;
+            buttonPrev.Visible = true;
+            buttonNext.Visible = true;
+
+            buttonLastRecord.Enabled = true;
+            firstRecord_button.Enabled = true;
+            buttonPrev.Enabled = true;
+            buttonNext.Enabled = true;
         }
     }
 }

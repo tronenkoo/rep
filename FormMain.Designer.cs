@@ -57,6 +57,7 @@ namespace AT2Recycle
             this.filterBy_comboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.listBoxRecyclers = new System.Windows.Forms.ListBox();
+            this.buttonSettings = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -319,11 +320,22 @@ namespace AT2Recycle
             this.listBoxRecyclers.Click += new System.EventHandler(this.listBoxRecyclers_Click);
             this.listBoxRecyclers.SelectedIndexChanged += new System.EventHandler(this.listBoxRecyclers_SelectedIndexChanged_1);
             // 
+            // buttonSettings
+            // 
+            this.buttonSettings.Location = new System.Drawing.Point(24, 652);
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(75, 23);
+            this.buttonSettings.TabIndex = 29;
+            this.buttonSettings.Text = "Settings";
+            this.buttonSettings.UseVisualStyleBackColor = true;
+            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 686);
+            this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.listBoxRecyclers);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.filterBy_comboBox);
@@ -390,6 +402,7 @@ namespace AT2Recycle
         private System.Windows.Forms.ComboBox filterBy_comboBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListBox listBoxRecyclers;
+        private System.Windows.Forms.Button buttonSettings;
     }
 }
 
