@@ -164,14 +164,13 @@ namespace AT2Recycle
                 {
                     while (csv.Read())
                     {
-                        var recycler = new Recycler
-                        {
-                            Name = csv.GetField<string>(0),
-                            Address = csv.GetField<string>(1),
-                            Phone = csv.GetField<string>(2),
-                            WebSite = csv.GetField<string>(3),
-                            Recycles = csv.GetField<string>(4)
-                        };
+                        var recycler = new Recycler(
+                            csv.GetField<string>(0),
+                            csv.GetField<string>(1),
+                            csv.GetField<string>(2),
+                            csv.GetField<string>(3),
+                            csv.GetField<string>(4)
+                        );
 
                         Recyclers.Add(recycler);
                     }
